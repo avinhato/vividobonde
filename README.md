@@ -1,2 +1,0 @@
-# vividobonde
-vida loka bb

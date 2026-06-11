@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regras de Voleibol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tela {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .ativa {
+            display: block;
+        }
+        .botoes-navegacao {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            margin: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .ponto-chave {
+            background-color: #e8f4fc;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+        .pergunta {
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .correto {
+            color: green;
+            font-weight: bold;
+        }
+        .errado {
+            color: red;
+            font-weight: bold;
+        }
+        .lembrete {
+            background-color: #fff3cd;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🏐 Guia de Regras de Voleibol</h1>
+
+    <!-- Navegação entre telas -->
+    <div class="botoes-navegacao">
+        <button onclick="mostrarTela('regras')">Resumo das Regras</button>
+        <button onclick="mostrarTela('pontos')">3 Pontos para Memorizar</button>
+        <button onclick="mostrarTela('quiz')">Quiz de Revisão</button>
+        <button onclick="mostrarTela('lembretes')">Lembretes de Estudo</button>
+    </div>
+
+    <!-- Tela 1: Resumo das Regras -->
+    <div id="regras" class="tela ativa">
+        <h2>📋 Resumo das Regras</h2>
+        <ul>
+            <li><strong>Objetivo:</strong> Marcar pontos fazendo a bola tocar o chão adversário ou forçar erros.</li>
+            <li><strong>Quadra:</strong> 18m x 9m; rede: 2,43m (masc) / 2,24m (fem).</li>
+            <li><strong>Jogadores:</strong> 6 em quadra; até 6 substituições por set.</li>
+            <li><strong>Rotação:</strong> Girar no sentido horário ao ganhar o saque.</li>
+            <li><strong>Toques:</strong> Máximo 3 por equipe (bloqueio não conta).</li>
+            <li><strong>Pontuação:</strong> Rally point; sets até 25 pontos (diferença de 2); 5º set até 15.</li>
+            <li><strong>Faltas:</strong> Segurar a bola, tocar a rede, invadir espaço adversário.</li>
+        </ul>
+    </div>
+
+    <!-- Tela 2: 3 Pontos para Memorizar -->
+    <div id="pontos" class="tela">
+        <h2>🧠 3 Pontos Principais</h2>
+        <div class="ponto-chave">
+            <h3>1. 3 Toques por Equipe</h3>
+            <p>Nunca mais de 3 contatos antes de enviar a bola ao adversário — bloqueio não é contado.</p>
+        </div>
+        <div class="ponto-chave">
+            <h3>2. Rotação Obrigatória</h3>
+            <p>Sempre girar no sentido horário quando ganhar o direito de sacar; erro dá ponto ao adversário.</p>
+        </div>
+        <div class="ponto-chave">
+            <h3>3. Diferença de 2 Pontos</h3>
+            <p>Para vencer qualquer set, é preciso ter pelo menos 2 pontos de vantagem, mesmo que passe dos 25 ou 15.</p>
+        </div>
+    </div>
+
+    <!-- Tela 3: Quiz -->
+    <div id="quiz" class="tela">
+        <h2>📝 Quiz de Revisão</h2>
+
+        <div class="pergunta">
+            <p>1. Qual o tamanho oficial da quadra?</p>
+            <label><input type="radio" name="q1" value="A"> 16m x 8m</label><br>
+            <label><input type="radio" name="q1" value="B"> 18m x 9m</label><br>
+            <label><input type="radio" name="q1" value="C"> 20m x 10m</label>
+            <p id="r1"></p>
+        </div>
+
+        <div class="pergunta">
+            <p>2. Altura da rede masculina?</p>
+            <label><input type="radio" name="q2" value="A"> 2,24m</label><br>
+            <label><input type="radio" name="q2" value="B"> 2,43m</label><br>
+            <label><input type="radio" name="q2" value="C"> 2,50m</label>
+            <p id="r2"></p>
+        </div>
+
+        <div class="pergunta">
+            <p>3. Quantos jogadores em quadra?</p>
+            <label><input type="radio" name="q3" value="A"> 5</label><br>
+            <label><input type="radio" name="q3" value="B"> 6</label><br>
+            <label><input type="radio" name="q3" value="C"> 7</label>
+            <p id="r3"></p>
+        </div>
+
+        <button onclick="corrigirQuiz()">Corrigir Respostas</button>
+    </div>
+
+    <!-- Tela 4: Lembretes -->
+    <div id="lembretes" class="tela">
+        <h2>⏰ Lembretes de Estudo</h2>
+        <div class="lembrete">📌 Revise os 3 toques e a rotação — são as faltas mais frequentes!</div>
+        <div class="lembrete">📌 Lembre-se da altura da rede e da diferença de 2 pontos para vencer o set.</div>
+        <div class="lembrete">📌 Estude as posições e o que cada jogador pode fazer em cada zona.</div>
+        <div class="lembrete">📌 Refaça o quiz sempre que possível para fixar o conteúdo.</div>
+        <div class="lembrete">📌 Assista a jogos e tente identificar as regras sendo aplicadas na prática.</div>
+    </div>
+
+    <script>
+        function mostrarTela(id) {
+            document.querySelectorAll('.tela').forEach(tela => tela.classList.remove('ativa'));
+            document.getElementById(id).classList.add('ativa');
+        }
+
+        function corrigirQuiz() {
+            const respostasCorretas = { q1: 'B', q2: 'B', q3: 'B' };
+            
+            for (let i = 1; i <= 3; i++) {
+                const nome = `q${i}`;
+                const selecionado = document.querySelector(`input[name="${nome}"]:checked`);
+                const resultado = document.getElementById(`r${i}`);
+
+                if (!selecionado) {
+                    resultado.textContent = "❌ Você não respondeu essa pergunta.";
+                    resultado.className = "errado";
+                } else if (selecionado.value === respostasCorretas[nome]) {
+                    resultado.textContent = "✅ Resposta correta!";
+                    resultado.className = "correto";
+                } else {
+                    resultado.textContent = "❌ Resposta errada. Estude novamente esse tópico.";
+                    resultado.className = "errado";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
