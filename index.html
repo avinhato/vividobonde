@@ -1,205 +1,394 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regras de Voleibol</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f0f8ff;
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .tela {
-            display: none;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        .ativa {
-            display: block;
-        }
-        .botoes-navegacao {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            margin: 5px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-        .ponto-chave {
-            background-color: #e8f4fc;
-            padding: 15px;
-            margin: 10px 0;
-            border-left: 5px solid #3498db;
-            border-radius: 5px;
-        }
-        .pergunta {
-            margin: 15px 0;
-            padding: 12px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-        .correto {
-            color: green;
-            font-weight: bold;
-        }
-        .errado {
-            color: red;
-            font-weight: bold;
-        }
-        .lembrete {
-            background-color: #fff3cd;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border-left: 5px solid #ffc107;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏐 Vôlei Master 2026</title>
+
+<style>
+
+:root{
+--primary:#0A2342;
+--secondary:#1E88E5;
+--accent:#FFD54F;
+--card:rgba(255,255,255,.08);
+--white:#fff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#071a33,#0f2d57);
+color:white;
+min-height:100vh;
+padding:20px;
+}
+
+header{
+text-align:center;
+margin-bottom:30px;
+}
+
+header h1{
+font-size:3rem;
+color:var(--accent);
+}
+
+header p{
+font-size:1.2rem;
+margin-top:10px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:var(--card);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+.card h2{
+margin-bottom:15px;
+color:var(--accent);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.progress{
+width:100%;
+height:15px;
+background:#29456e;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.progress-fill{
+height:100%;
+width:0%;
+background:var(--accent);
+transition:0.5s;
+}
+
+.quiz-option{
+display:block;
+padding:10px;
+margin:8px 0;
+background:rgba(255,255,255,.05);
+border-radius:10px;
+cursor:pointer;
+}
+
+button{
+background:var(--accent);
+border:none;
+padding:12px 25px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#resultado{
+margin-top:20px;
+font-size:1.2rem;
+font-weight:bold;
+}
+
+ul{
+padding-left:20px;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+opacity:.8;
+}
+
+</style>
 </head>
+
 <body>
 
-    <h1>🏐 Guia de Regras de Voleibol</h1>
+<header>
+<h1>🏐 VÔLEI MASTER 2026</h1>
+<p>Entenda as novas regras e domine o jogo</p>
+</header>
 
-    <!-- Navegação entre telas -->
-    <div class="botoes-navegacao">
-        <button onclick="mostrarTela('regras')">Resumo das Regras</button>
-        <button onclick="mostrarTela('pontos')">3 Pontos para Memorizar</button>
-        <button onclick="mostrarTela('quiz')">Quiz de Revisão</button>
-        <button onclick="mostrarTela('lembretes')">Lembretes de Estudo</button>
-    </div>
+<div class="container">
 
-    <!-- Tela 1: Resumo das Regras -->
-    <div id="regras" class="tela ativa">
-        <h2>📋 Resumo das Regras</h2>
-        <ul>
-            <li><strong>Objetivo:</strong> Marcar pontos fazendo a bola tocar o chão adversário ou forçar erros.</li>
-            <li><strong>Quadra:</strong> 18m x 9m; rede: 2,43m (masc) / 2,24m (fem).</li>
-            <li><strong>Jogadores:</strong> 6 em quadra; até 6 substituições por set.</li>
-            <li><strong>Rotação:</strong> Girar no sentido horário ao ganhar o saque.</li>
-            <li><strong>Toques:</strong> Máximo 3 por equipe (bloqueio não conta).</li>
-            <li><strong>Pontuação:</strong> Rally point; sets até 25 pontos (diferença de 2); 5º set até 15.</li>
-            <li><strong>Faltas:</strong> Segurar a bola, tocar a rede, invadir espaço adversário.</li>
-        </ul>
-    </div>
+<div class="card">
+<h2>📊 Seu Progresso</h2>
 
-    <!-- Tela 2: 3 Pontos para Memorizar -->
-    <div id="pontos" class="tela">
-        <h2>🧠 3 Pontos Principais</h2>
-        <div class="ponto-chave">
-            <h3>1. 3 Toques por Equipe</h3>
-            <p>Nunca mais de 3 contatos antes de enviar a bola ao adversário — bloqueio não é contado.</p>
-        </div>
-        <div class="ponto-chave">
-            <h3>2. Rotação Obrigatória</h3>
-            <p>Sempre girar no sentido horário quando ganhar o direito de sacar; erro dá ponto ao adversário.</p>
-        </div>
-        <div class="ponto-chave">
-            <h3>3. Diferença de 2 Pontos</h3>
-            <p>Para vencer qualquer set, é preciso ter pelo menos 2 pontos de vantagem, mesmo que passe dos 25 ou 15.</p>
-        </div>
-    </div>
+<p id="progressoTexto">0% concluído</p>
 
-    <!-- Tela 3: Quiz -->
-    <div id="quiz" class="tela">
-        <h2>📝 Quiz de Revisão</h2>
+<div class="progress">
+<div class="progress-fill" id="barraProgresso"></div>
+</div>
 
-        <div class="pergunta">
-            <p>1. Qual o tamanho oficial da quadra?</p>
-            <label><input type="radio" name="q1" value="A"> 16m x 8m</label><br>
-            <label><input type="radio" name="q1" value="B"> 18m x 9m</label><br>
-            <label><input type="radio" name="q1" value="C"> 20m x 10m</label>
-            <p id="r1"></p>
-        </div>
+</div>
 
-        <div class="pergunta">
-            <p>2. Altura da rede masculina?</p>
-            <label><input type="radio" name="q2" value="A"> 2,24m</label><br>
-            <label><input type="radio" name="q2" value="B"> 2,43m</label><br>
-            <label><input type="radio" name="q2" value="C"> 2,50m</label>
-            <p id="r2"></p>
-        </div>
+<div class="card">
+<h2>📖 Resumo</h2>
 
-        <div class="pergunta">
-            <p>3. Quantos jogadores em quadra?</p>
-            <label><input type="radio" name="q3" value="A"> 5</label><br>
-            <label><input type="radio" name="q3" value="B"> 6</label><br>
-            <label><input type="radio" name="q3" value="C"> 7</label>
-            <p id="r3"></p>
-        </div>
+<p>
+As novas regras do voleibol tornam o jogo mais justo,
+mais tecnológico e mais transparente para atletas,
+árbitros e torcedores.
+</p>
 
-        <button onclick="corrigirQuiz()">Corrigir Respostas</button>
-    </div>
+</div>
 
-    <!-- Tela 4: Lembretes -->
-    <div id="lembretes" class="tela">
-        <h2>⏰ Lembretes de Estudo</h2>
-        <div class="lembrete">📌 Revise os 3 toques e a rotação — são as faltas mais frequentes!</div>
-        <div class="lembrete">📌 Lembre-se da altura da rede e da diferença de 2 pontos para vencer o set.</div>
-        <div class="lembrete">📌 Estude as posições e o que cada jogador pode fazer em cada zona.</div>
-        <div class="lembrete">📌 Refaça o quiz sempre que possível para fixar o conteúdo.</div>
-        <div class="lembrete">📌 Assista a jogos e tente identificar as regras sendo aplicadas na prática.</div>
-    </div>
+<div class="card">
+<h2>📜 Regras Atualizadas</h2>
 
-    <script>
-        function mostrarTela(id) {
-            document.querySelectorAll('.tela').forEach(tela => tela.classList.remove('ativa'));
-            document.getElementById(id).classList.add('ativa');
-        }
+<div class="grid">
 
-        function corrigirQuiz() {
-            const respostasCorretas = { q1: 'B', q2: 'B', q3: 'B' };
-            
-            for (let i = 1; i <= 3; i++) {
-                const nome = `q${i}`;
-                const selecionado = document.querySelector(`input[name="${nome}"]:checked`);
-                const resultado = document.getElementById(`r${i}`);
+<div class="card">
+<h3>📹 Revisão por Vídeo</h3>
+<p>Verificação de lances importantes.</p>
+</div>
 
-                if (!selecionado) {
-                    resultado.textContent = "❌ Você não respondeu essa pergunta.";
-                    resultado.className = "errado";
-                } else if (selecionado.value === respostasCorretas[nome]) {
-                    resultado.textContent = "✅ Resposta correta!";
-                    resultado.className = "correto";
-                } else {
-                    resultado.textContent = "❌ Resposta errada. Estude novamente esse tópico.";
-                    resultado.className = "errado";
-                }
-            }
-        }
-    </script>
+<div class="card">
+<h3>⚖️ Toque na Rede</h3>
+<p>É falta quando interfere na jogada.</p>
+</div>
 
-</body>
-</html>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+<div class="card">
+<h3>🔄 Substituições</h3>
+<p>Seguem as regras da competição.</p>
+</div>
+
+<div class="card">
+<h3>🗣 Comunicação</h3>
+<p>Mais clareza entre árbitros e equipes.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📹 Revisão por Vídeo</h2>
+
+<p>
+A revisão por vídeo é um recurso tecnológico utilizado
+em competições oficiais para analisar lances duvidosos.
+</p>
+
+<ul>
+<li>🏐 Bola dentro ou fora</li>
+<li>🤚 Toque no bloqueio</li>
+<li>⚖️ Falta na rede</li>
+<li>📍 Invasão de linha</li>
+<li>🎯 Decisões contestadas</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>⭐ Top 3 Mudanças</h2>
+
+<p>🥇 Tecnologia na arbitragem</p>
+<p>🥈 Transparência nas decisões</p>
+<p>🥉 Mais precisão nos lances</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎮 Quiz das Novas Regras</h2>
+
+<p><strong>1. Qual é um dos objetivos das novas regras?</strong></p>
+<label class="quiz-option"><input type="radio" name="q1" value="A"> Diminuir partidas</label>
+<label class="quiz-option"><input type="radio" name="q1" value="B"> Tornar o jogo mais justo</label>
+<label class="quiz-option"><input type="radio" name="q1" value="C"> Retirar árbitros</label>
+
+<p><strong>2. O desafio por vídeo serve para?</strong></p>
+<label class="quiz-option"><input type="radio" name="q2" value="A"> Trocar jogadores</label>
+<label class="quiz-option"><input type="radio" name="q2" value="B"> Revisar lances</label>
+<label class="quiz-option"><input type="radio" name="q2" value="C"> Encerrar sets</label>
+
+<p><strong>3. A tecnologia auxilia quem?</strong></p>
+<label class="quiz-option"><input type="radio" name="q3" value="A"> Torcedores</label>
+<label class="quiz-option"><input type="radio" name="q3" value="B"> Árbitros</label>
+<label class="quiz-option"><input type="radio" name="q3" value="C"> Narradores</label>
+
+<p><strong>4. As novas regras aumentam:</strong></p>
+<label class="quiz-option"><input type="radio" name="q4" value="A"> Transparência</label>
+<label class="quiz-option"><input type="radio" name="q4" value="B"> Confusão</label>
+<label class="quiz-option"><input type="radio" name="q4" value="C"> Demora</label>
+
+<p><strong>5. Uma mudança importante foi:</strong></p>
+<label class="quiz-option"><input type="radio" name="q5" value="A"> Quadra triangular</label>
+<label class="quiz-option"><input type="radio" name="q5" value="B"> 8 jogadores</label>
+<label class="quiz-option"><input type="radio" name="q5" value="C"> Revisão eletrônica</label>
+
+<p><strong>6. A revisão por vídeo aumenta:</strong></p>
+<label class="quiz-option"><input type="radio" name="q6" value="A"> A justiça das decisões</label>
+<label class="quiz-option"><input type="radio" name="q6" value="B"> O tamanho da quadra</label>
+<label class="quiz-option"><input type="radio" name="q6" value="C"> O número de jogadores</label>
+
+<p><strong>7. O toque na rede é falta quando:</strong></p>
+<label class="quiz-option"><input type="radio" name="q7" value="A"> Nunca</label>
+<label class="quiz-option"><input type="radio" name="q7" value="B"> Sempre</label>
+<label class="quiz-option"><input type="radio" name="q7" value="C"> Interfere na jogada</label>
+
+<p><strong>8. A tecnologia auxilia principalmente:</strong></p>
+<label class="quiz-option"><input type="radio" name="q8" value="A"> Torcedores</label>
+<label class="quiz-option"><input type="radio" name="q8" value="B"> Árbitros</label>
+<label class="quiz-option"><input type="radio" name="q8" value="C"> Patrocinadores</label>
+
+<p><strong>9. As novas regras buscam:</strong></p>
+<label class="quiz-option"><input type="radio" name="q9" value="A"> Mais transparência</label>
+<label class="quiz-option"><input type="radio" name="q9" value="B"> Menos organização</label>
+<label class="quiz-option"><input type="radio" name="q9" value="C"> Menos arbitragem</label>
+
+<p><strong>10. Um benefício da revisão por vídeo é:</strong></p>
+<label class="quiz-option"><input type="radio" name="q10" value="A"> Aumentar a rede</label>
+<label class="quiz-option"><input type="radio" name="q10" value="B"> Reduzir jogadores</label>
+<label class="quiz-option"><input type="radio" name="q10" value="C"> Corrigir erros de arbitragem</label>
+
+<button onclick="corrigirQuiz()">
+🏆 Ver Resultado
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<div class="card">
+
+<h2>🔔 Lembretes</h2>
+
+<ul>
+<li>📚 Revisar as regras diariamente</li>
+<li>🏐 Fazer o quiz novamente</li>
+<li>📹 Estudar a revisão por vídeo</li>
+<li>📖 Ler atualizações da CBV e FIVB</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+Projeto Educacional • Vôlei Master 2026
+</footer>
+
+<script>
+
+document
+.querySelectorAll('input[type="radio"]')
+.forEach(input=>{
+input.addEventListener(
+'change',
+atualizarProgresso
+);
+});
+
+function atualizarProgresso(){
+
+const respondidas =
+document.querySelectorAll(
+'input[type="radio"]:checked'
+).length;
+
+const porcentagem =
+(respondidas / 10) * 100;
+
+document.getElementById("barraProgresso")
+.style.width = porcentagem + "%";
+
+document.getElementById("progressoTexto")
+.innerHTML =
+porcentagem.toFixed(0) + "% concluído";
+}
+
+function corrigirQuiz(){
+
+const respostas = {
+q1:"B",
+q2:"B",
+q3:"B",
+q4:"A",
+q5:"C",
+q6:"A",
+q7:"C",
+q8:"B",
+q9:"A",
+q10:"C"
+};
+
+let pontos = 0;
+
+for(let q in respostas){
+
+const marcada =
+document.querySelector(
+`input[name="${q}"]:checked`
+);
+
+if(
+marcada &&
+marcada.value === respostas[q]
+){
+pontos++;
+}
+
+}
+
+const percentual =
+(pontos/10)*100;
+
+let nivel = "";
+
+if(percentual >= 90){
+nivel = "🥇 ESPECIALISTA";
+}
+else if(percentual >= 70){
+nivel = "🥈 AVANÇADO";
+}
+else if(percentual >= 50){
+nivel = "🥉 INTERMEDIÁRIO";
+}
+else{
+nivel = "📚 INICIANTE";
+}
+
+document.getElementById("resultado")
+.innerHTML = `
+🏆 Acertos: ${pontos}/10 <br><br>
+📊 Aproveitamento: ${percentual}% <br><br>
+${nivel}
+`;
+
+}
+
+</script>
+
 </body>
 </html>
+```
