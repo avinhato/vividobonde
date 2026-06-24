@@ -1,394 +1,149 @@
-```html
+<!-- index.html -->
+
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🏐 Vôlei Master 2026</title>
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-:root{
---primary:#0A2342;
---secondary:#1E88E5;
---accent:#FFD54F;
---card:rgba(255,255,255,.08);
---white:#fff;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#071a33,#0f2d57);
-color:white;
-min-height:100vh;
-padding:20px;
-}
-
-header{
-text-align:center;
-margin-bottom:30px;
-}
-
-header h1{
-font-size:3rem;
-color:var(--accent);
-}
-
-header p{
-font-size:1.2rem;
-margin-top:10px;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-}
-
-.card{
-background:var(--card);
-backdrop-filter:blur(10px);
-padding:20px;
-border-radius:20px;
-margin-bottom:20px;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
-}
-
-.card h2{
-margin-bottom:15px;
-color:var(--accent);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
-.progress{
-width:100%;
-height:15px;
-background:#29456e;
-border-radius:20px;
-overflow:hidden;
-margin-top:10px;
-}
-
-.progress-fill{
-height:100%;
-width:0%;
-background:var(--accent);
-transition:0.5s;
-}
-
-.quiz-option{
-display:block;
-padding:10px;
-margin:8px 0;
-background:rgba(255,255,255,.05);
-border-radius:10px;
-cursor:pointer;
-}
-
-button{
-background:var(--accent);
-border:none;
-padding:12px 25px;
-border-radius:30px;
-font-weight:bold;
-cursor:pointer;
-margin-top:20px;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-#resultado{
-margin-top:20px;
-font-size:1.2rem;
-font-weight:bold;
-}
-
-ul{
-padding-left:20px;
-}
-
-footer{
-text-align:center;
-margin-top:30px;
-opacity:.8;
-}
-
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
-<h1>🏐 VÔLEI MASTER 2026</h1>
-<p>Entenda as novas regras e domine o jogo</p>
-</header>
+<header class="hero">
 
-<div class="container">
+<div class="hero-overlay">
 
-<div class="card">
-<h2>📊 Seu Progresso</h2>
+<nav class="navbar">
+<h2>🏐 Vôlei Master 2026</h2>
+</nav>
 
-<p id="progressoTexto">0% concluído</p>
+<div class="hero-content">
 
-<div class="progress">
-<div class="progress-fill" id="barraProgresso"></div>
-</div>
-
-</div>
-
-<div class="card">
-<h2>📖 Resumo</h2>
+<h1>Aprenda as Regras do Voleibol de Forma Interativa</h1>
 
 <p>
-As novas regras do voleibol tornam o jogo mais justo,
-mais tecnológico e mais transparente para atletas,
-árbitros e torcedores.
+Conheça a quadra, aprenda os fundamentos,
+entenda as regras oficiais e teste seus
+conhecimentos com um quiz moderno.
 </p>
 
-</div>
-
-<div class="card">
-<h2>📜 Regras Atualizadas</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>📹 Revisão por Vídeo</h3>
-<p>Verificação de lances importantes.</p>
-</div>
-
-<div class="card">
-<h3>⚖️ Toque na Rede</h3>
-<p>É falta quando interfere na jogada.</p>
-</div>
-
-<div class="card">
-<h3>🔄 Substituições</h3>
-<p>Seguem as regras da competição.</p>
-</div>
-
-<div class="card">
-<h3>🗣 Comunicação</h3>
-<p>Mais clareza entre árbitros e equipes.</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>📹 Revisão por Vídeo</h2>
-
-<p>
-A revisão por vídeo é um recurso tecnológico utilizado
-em competições oficiais para analisar lances duvidosos.
-</p>
-
-<ul>
-<li>🏐 Bola dentro ou fora</li>
-<li>🤚 Toque no bloqueio</li>
-<li>⚖️ Falta na rede</li>
-<li>📍 Invasão de linha</li>
-<li>🎯 Decisões contestadas</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>⭐ Top 3 Mudanças</h2>
-
-<p>🥇 Tecnologia na arbitragem</p>
-<p>🥈 Transparência nas decisões</p>
-<p>🥉 Mais precisão nos lances</p>
-
-</div>
-
-<div class="card">
-
-<h2>🎮 Quiz das Novas Regras</h2>
-
-<p><strong>1. Qual é um dos objetivos das novas regras?</strong></p>
-<label class="quiz-option"><input type="radio" name="q1" value="A"> Diminuir partidas</label>
-<label class="quiz-option"><input type="radio" name="q1" value="B"> Tornar o jogo mais justo</label>
-<label class="quiz-option"><input type="radio" name="q1" value="C"> Retirar árbitros</label>
-
-<p><strong>2. O desafio por vídeo serve para?</strong></p>
-<label class="quiz-option"><input type="radio" name="q2" value="A"> Trocar jogadores</label>
-<label class="quiz-option"><input type="radio" name="q2" value="B"> Revisar lances</label>
-<label class="quiz-option"><input type="radio" name="q2" value="C"> Encerrar sets</label>
-
-<p><strong>3. A tecnologia auxilia quem?</strong></p>
-<label class="quiz-option"><input type="radio" name="q3" value="A"> Torcedores</label>
-<label class="quiz-option"><input type="radio" name="q3" value="B"> Árbitros</label>
-<label class="quiz-option"><input type="radio" name="q3" value="C"> Narradores</label>
-
-<p><strong>4. As novas regras aumentam:</strong></p>
-<label class="quiz-option"><input type="radio" name="q4" value="A"> Transparência</label>
-<label class="quiz-option"><input type="radio" name="q4" value="B"> Confusão</label>
-<label class="quiz-option"><input type="radio" name="q4" value="C"> Demora</label>
-
-<p><strong>5. Uma mudança importante foi:</strong></p>
-<label class="quiz-option"><input type="radio" name="q5" value="A"> Quadra triangular</label>
-<label class="quiz-option"><input type="radio" name="q5" value="B"> 8 jogadores</label>
-<label class="quiz-option"><input type="radio" name="q5" value="C"> Revisão eletrônica</label>
-
-<p><strong>6. A revisão por vídeo aumenta:</strong></p>
-<label class="quiz-option"><input type="radio" name="q6" value="A"> A justiça das decisões</label>
-<label class="quiz-option"><input type="radio" name="q6" value="B"> O tamanho da quadra</label>
-<label class="quiz-option"><input type="radio" name="q6" value="C"> O número de jogadores</label>
-
-<p><strong>7. O toque na rede é falta quando:</strong></p>
-<label class="quiz-option"><input type="radio" name="q7" value="A"> Nunca</label>
-<label class="quiz-option"><input type="radio" name="q7" value="B"> Sempre</label>
-<label class="quiz-option"><input type="radio" name="q7" value="C"> Interfere na jogada</label>
-
-<p><strong>8. A tecnologia auxilia principalmente:</strong></p>
-<label class="quiz-option"><input type="radio" name="q8" value="A"> Torcedores</label>
-<label class="quiz-option"><input type="radio" name="q8" value="B"> Árbitros</label>
-<label class="quiz-option"><input type="radio" name="q8" value="C"> Patrocinadores</label>
-
-<p><strong>9. As novas regras buscam:</strong></p>
-<label class="quiz-option"><input type="radio" name="q9" value="A"> Mais transparência</label>
-<label class="quiz-option"><input type="radio" name="q9" value="B"> Menos organização</label>
-<label class="quiz-option"><input type="radio" name="q9" value="C"> Menos arbitragem</label>
-
-<p><strong>10. Um benefício da revisão por vídeo é:</strong></p>
-<label class="quiz-option"><input type="radio" name="q10" value="A"> Aumentar a rede</label>
-<label class="quiz-option"><input type="radio" name="q10" value="B"> Reduzir jogadores</label>
-<label class="quiz-option"><input type="radio" name="q10" value="C"> Corrigir erros de arbitragem</label>
-
-<button onclick="corrigirQuiz()">
-🏆 Ver Resultado
+<button id="iniciarBtn">
+Começar Agora
 </button>
 
-<div id="resultado"></div>
-
-</div>
-
-<div class="card">
-
-<h2>🔔 Lembretes</h2>
-
-<ul>
-<li>📚 Revisar as regras diariamente</li>
-<li>🏐 Fazer o quiz novamente</li>
-<li>📹 Estudar a revisão por vídeo</li>
-<li>📖 Ler atualizações da CBV e FIVB</li>
-</ul>
-
 </div>
 
 </div>
 
-<footer>
-Projeto Educacional • Vôlei Master 2026
-</footer>
+</header>
 
-<script>
+<main>
 
-document
-.querySelectorAll('input[type="radio"]')
-.forEach(input=>{
-input.addEventListener(
-'change',
-atualizarProgresso
-);
-});
+<section class="container" id="conteudo">
 
-function atualizarProgresso(){
+<div class="info-grid">
 
-const respondidas =
-document.querySelectorAll(
-'input[type="radio"]:checked'
-).length;
+<div class="info-card">
 
-const porcentagem =
-(respondidas / 10) * 100;
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Volleyball_court_dimensions.svg/1280px-Volleyball_court_dimensions.svg.png"
+alt="Quadra de vôlei">
 
-document.getElementById("barraProgresso")
-.style.width = porcentagem + "%";
+<h3>📏 Conhecendo a Quadra</h3>
 
-document.getElementById("progressoTexto")
-.innerHTML =
-porcentagem.toFixed(0) + "% concluído";
-}
+<p>
+A quadra oficial possui 18 metros de comprimento
+e 9 metros de largura, dividida pela rede.
+</p>
 
-function corrigirQuiz(){
+</div>
 
-const respostas = {
-q1:"B",
-q2:"B",
-q3:"B",
-q4:"A",
-q5:"C",
-q6:"A",
-q7:"C",
-q8:"B",
-q9:"A",
-q10:"C"
-};
+<div class="info-card">
 
-let pontos = 0;
+<h3>🏐 Linha de Ataque</h3>
 
-for(let q in respostas){
+<p>
+A linha de ataque fica a 3 metros da rede
+e limita determinadas ações dos jogadores
+da defesa.
+</p>
 
-const marcada =
-document.querySelector(
-`input[name="${q}"]:checked`
-);
+</div>
 
-if(
-marcada &&
-marcada.value === respostas[q]
-){
-pontos++;
-}
+<div class="info-card">
 
-}
+<h3>🛡️ Líbero</h3>
 
-const percentual =
-(pontos/10)*100;
+<p>
+O líbero é especializado na defesa,
+usa uniforme diferente e não pode bloquear.
+</p>
 
-let nivel = "";
+</div>
 
-if(percentual >= 90){
-nivel = "🥇 ESPECIALISTA";
-}
-else if(percentual >= 70){
-nivel = "🥈 AVANÇADO";
-}
-else if(percentual >= 50){
-nivel = "🥉 INTERMEDIÁRIO";
-}
-else{
-nivel = "📚 INICIANTE";
-}
+<div class="info-card">
 
-document.getElementById("resultado")
-.innerHTML = `
-🏆 Acertos: ${pontos}/10 <br><br>
-📊 Aproveitamento: ${percentual}% <br><br>
-${nivel}
-`;
+<h3>🎥 Desafio de Vídeo</h3>
 
-}
+<p>
+As equipes podem solicitar revisão
+de determinados lances através do sistema
+de vídeo.
+</p>
 
-</script>
+</div>
+
+</div>
+
+<section class="quiz-container">
+
+<div class="quiz-header">
+
+<h2>🎮 Quiz das Regras</h2>
+
+<div class="progress-box">
+
+<span id="progressoTexto">
+Pergunta 1 de 10
+</span>
+
+<div class="progress">
+<div id="barraProgresso"></div>
+</div>
+
+</div>
+
+</div>
+
+<div id="quizCard" class="quiz-card">
+
+<h3 id="pergunta"></h3>
+
+<div id="alternativas"></div>
+
+<button id="proximaBtn">
+Próxima Pergunta →
+</button>
+
+</div>
+
+<div id="resultado" class="resultado hidden"></div>
+
+</section>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
-```
